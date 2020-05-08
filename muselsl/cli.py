@@ -44,6 +44,15 @@ class CLI:
                             default=False, action="store_true", help="Include gyroscope data")
         parser.add_argument('-d', '--disable-eeg', dest='disable_eeg',
                             action='store_true', help="Disable EEG data")
+
+        parser.add_argument("-m", "--midi", help="Send data to MIDI output", action="store_true")
+        parser.add_argument("-osc", "--OSC", help="Send data to OSC client - (0/1)", action="store_true")
+        parser.add_argument("-osc_server", "--OSC_SERVER", 
+                                help="Recive data as an OSC server - (0/1)", action="store_true")
+        parser.add_argument("--OSC_IP", help="IP of the OSC client")
+        parser.add_argument("--OSC_PORT", help="Port number of OSC client)", type=int)
+
+
         args = parser.parse_args(sys.argv[2:])
         from . import stream
 
